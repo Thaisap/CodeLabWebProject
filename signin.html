@@ -1,57 +1,59 @@
 <!DOCTYPE html>
 
 <html>
-    <head>
+<head>
 
-        <meta charset="utf-8">
-        <title>SIgn In</title>
-        <link rel="stylesheet" type="text/css" href="index.css">
-          <link rel="stylesheet" type="text/css" href="createaccount.css">
-        <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+    <meta charset="utf-8">
+    <title>SIgn In</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <link rel="stylesheet" type="text/css" href="createaccount.css">
+    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
 
-        <!-- The core Firebase JS SDK is always required and must be listed first -->
-        <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-database.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-storage.js"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-storage.js"></script>
 
 
-        <!-- TODO: Add SDKs for Firebase products that you want to use
+    <!-- TODO: Add SDKs for Firebase products that you want to use
 https://firebase.google.com/docs/web/setup#available-libraries -->
-        <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-analytics.js"></script>
 
-        <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
-    </head>
-
-
-    <body>
-
-        <div class="topnav">
-            <a class="active" href="signin.html">Home</a>
-            <a href="howItWorks.html">How it works</a>
-            <a href="teachWithUs.html">Teach With Us</a>
-            <a href="contact.html">Contact  Us</a>
-            <a href="resources.html">Resources</a>
-        </div>
-
-        <div class="row">
-            <div class="column"></div>
-            <div class="column"></div>
-            <div class="column"></div>
-        </div>
-
-        <br />
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+</head>
 
 
-        <h1> Please enter your info </h1>
+<body>
 
+<div class="topnav">
+    <a class="active" href="signin.html">Home</a>
+    <a href="howItWorks.html">How it works</a>
+    <a href="teachWithUs.html">Teach With Us</a>
+    <a href="contact.html">Contact Us</a>
+    <a href="resources.html">Resources</a>
+</div>
 
-        <input id="email" type= "text" placeholder="email" >
-        <input  id="password" type= "text" placeholder="password">
+<div class="row">
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+</div>
+
+<br/>
+
+<form>
+    <h1> Please enter your info </h1>
+    <hr>
+    <fieldset>
+        <label for="email"> E-mail </label> <br>
+        <input id="email" type="text" placeholder="email">
+        <label for="password"> Password </label> <br>
+        <input id="password" type="text" placeholder="password">
         <button id="btn-login" type="button"> Login</button>
 
 
-        <div class="w-full text-center p-t-27 p-b-239">
+        <div id= "forgot" class="w-full text-center p-t-27 p-b-239">
             <span> Forgot</span>
             <a href="forgotpassword.html" class="text-dark"> username/password?</a>
         </div>
@@ -59,38 +61,32 @@ https://firebase.google.com/docs/web/setup#available-libraries -->
         <div class="container signup">
             <p>Don't have an account? <a href=signup.html>Sign in</a>.</p>
         </div>
+    </fieldset>
+</form>
+<footer>
+    <p>Author: blabla</p>
+    <p><a href="mailto:hege@example.com">blablabla</a></p>
+</footer>
 
-        <footer>
-            <p>Author: blabla</p>
-            <p><a href="mailto:hege@example.com">blablabla</a></p>
-        </footer>
+<script src=js/index.js></script>
+<script>
+    firebase.auth().onAuthStateChanged(function (user) {
+        if (user) {
+            var userID = firebase.auth().currentUser.uid;
 
-        <script src=js/index.js> </script>
-        <script>
-           firebase.auth().onAuthStateChanged(function(user)
-                                               {
-                if(user)
-                {
-                    var userID = firebase.auth().currentUser.uid;
-
-                    firebase.database().ref('Users/' + userID).once('value').then(function(snapshot)
-                                                                                  {
-                        if(snapshot.val())
-                        {
-                            window.location.href = "MainPage.html";
-                        }
-                        else
-                        {
-                            window.location.href= "accountSettings.html";
-                        }
+            firebase.database().ref('Users/' + userID).once('value').then(function (snapshot) {
+                    if (snapshot.val()) {
+                        window.location.href = "MainPage.html";
+                    } else {
+                        window.location.href = "accountSettings.html";
                     }
-
-             )
-
                 }
+            )
 
-            });
-        </script>
-    </body>
+        }
+
+    });
+</script>
+</body>
 
 </html>

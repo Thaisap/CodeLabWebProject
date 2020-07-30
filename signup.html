@@ -1,110 +1,102 @@
 <!DOCTYPE html>
 <html>
 
-    <head>
-        <meta charset="utf-8">
-        <title>starter code</title>
-        <link rel="stylesheet" type="text/css" href="index.css">
-        <link rel="stylesheet" type="text/css" href="createaccount.css">
+<head>
+    <meta charset="utf-8">
+    <title>starter code</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <link rel="stylesheet" type="text/css" href="createaccount.css">
 
-        <!-- The core Firebase JS SDK is always required and must be listed first -->
-        <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-database.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-storage.js"></script>
-        <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-storage.js"></script>
+    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
 
-        <!-- TODO: Add SDKs for Firebase products that you want to use
+    <!-- TODO: Add SDKs for Firebase products that you want to use
 https://firebase.google.com/docs/web/setup#available-libraries -->
-        <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-analytics.js"></script>
 
-        <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
 
-    </head>
+</head>
 
-    <body>
-        <div class="topnav">
-            <a class="active" href="signin.html">Home</a>
-            <a href="howItWorks.html">How it works</a>
-            <a href="teachWithUs.html">Teach With Us</a>
-            <a href="contact.html">Contact  Us</a>
-            <a href="resources.html">Resources</a>
-        </div>
+<body>
+<div class="topnav">
+    <a class="active" href="signin.html">Home</a>
+    <a href="howItWorks.html">How it works</a>
+    <a href="teachWithUs.html">Teach With Us</a>
+    <a href="contact.html">Contact Us</a>
+    <a href="resources.html">Resources</a>
+</div>
 
 
-        <div class="row">
-            <div class="column"></div>
-            <div class="column"></div>
-            <div class="column"></div>
-        </div>
+<div class="row">
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+</div>
 
-        <br />
+<br/>
 
-        <main>
+<main>
 
-            <form>
-                <div class ="container">
-                    <h1> Register </h1>
-                    <p> Please fill in the form to create your account. </p>
-                    <hr>
-                    <fieldset>
-                        <label for="email"> E-mail </label> <br>
-                        <input type="text" name="email" id="email" value="" required> <br>
-                        <label for="passwordField"> Password </label> <br>
-                        <input type="text" name="password" id="password" value="" required> <br>
-                        <label for="confPassword"> Confirm Password </label> <br>
-                        <input type="text" name="confPassword" id="confPassword" value="" required> <br>
+    <form>
+        <div class="container">
+            <h1> Register </h1>
+            <p> Please fill in the form to create your account. </p>
+            <hr>
+            <fieldset>
+                <label for="email"> E-mail </label> <br>
+                <input type="text" name="email" id="email" value="" required> <br>
+                <label for="password"> Password </label> <br>
+                <input type="text" name="password" id="password" value="" required> <br>
+                <label for="confPassword"> Confirm Password </label> <br>
+                <input type="text" name="confPassword" id="confPassword" value="" required> <br>
 
-                        <hr>
-                        <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+                <hr>
+                <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
 
-                        <button id="btn-signup" type="button"> Register </button>
+                <button id="btn-signup" type="button"> Register</button>
 
-                        <br>
-                        <div class="container signin">
-                            <p>Already have an account? <a href="signin.html">Sign in</a>.</p>
-                        </div>
-
-                    </fieldset>
-
+                <br>
+                <div class="container signin">
+                    <p>Already have an account? <a href="signin.html">Sign in</a>.</p>
                 </div>
 
-            </form>
-        </main>
+            </fieldset>
 
-        <footer>
-            <p>Author: blabla</p>
-            <p><a href="mailto:hege@example.com">blablabla</a></p>
-        </footer>
+        </div>
 
-        <script src=js/index.js> </script>
-        <script>
-            firebase.auth().onAuthStateChanged(function(user)
-                                               {
-                if(user)
-                {
-                    var userID = firebase.auth().currentUser.uid;
+    </form>
+</main>
 
-                    firebase.database().ref('Users/' + userID).once('value').then(function(snapshot)
-                                                                                  {
-                        if(snapshot.val())
-                        {
-                            window.location.href = "MainPage.html";
-                        }
-                        else
-                        {
-                            window.location.href= "accountSettings.html";
-                        }
+<footer>
+    <p>Author: blabla</p>
+    <p><a href="mailto:hege@example.com">blablabla</a></p>
+</footer>
+
+<script src=js/index.js></script>
+<script>
+    firebase.auth().onAuthStateChanged(function (user) {
+        if (user) {
+            var userID = firebase.auth().currentUser.uid;
+
+            firebase.database().ref('Users/' + userID).once('value').then(function (snapshot) {
+                    if (snapshot.val()) {
+                        window.location.href = "MainPage.html";
+                    } else {
+                        window.location.href = "accountSettings.html";
                     }
-
-             )
-
                 }
+            )
 
-            });
-        </script>
-    </body>
+        }
 
+    });
+</script>
+</body>
 
 
 </html>
