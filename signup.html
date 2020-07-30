@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <title>starter code</title>
+        <link rel="stylesheet" type="text/css" href="index.css">
+
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-database.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-storage.js"></script>
+
+
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+https://firebase.google.com/docs/web/setup#available-libraries -->
+        <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-analytics.js"></script>
+
+        <script src=js/index.js> </script>
+    </head>
+
+    <body>
+        <div class="topnav">
+            <a class="active" href="signin.html">Home</a>
+            <a href="howItWorks.html">How it works</a>
+            <a href="teachWithUs.html">Teach With Us</a>
+            <a href="contact.html">Contact  Us</a>
+            <a href="resources.html">Resources</a>
+        </div>
+
+        <div class="row">
+            <div class="column"></div>
+            <div class="column"></div>
+            <div class="column"></div>
+        </div>
+
+        <br />
+
+        <script>
+            // Your web app's Firebase configuration
+            var firebaseConfig = {
+                apiKey: "AIzaSyBQbdaIFkpB5JH8zI5dGc_fe_3sqw4XDnU",
+                authDomain: "codelab-ce3a0.firebaseapp.com",
+                databaseURL: "https://codelab-ce3a0.firebaseio.com",
+                projectId: "codelab-ce3a0",
+                storageBucket: "codelab-ce3a0.appspot.com",
+                messagingSenderId: "381950604305",
+                appId: "1:381950604305:web:41fb3cfae83c1196066db0",
+                measurementId: "G-CVQ5RHTX8D"
+            };
+            // Initialize Firebase
+            firebase.initializeApp(firebaseConfig);
+            firebase.analytics();
+
+            var db = firebase.database();
+            var rootRef = db.ref('users');
+
+            function writeData() {
+                var autoId = rootRef.push().key
+                rootRef.child(autoId).set({
+                    Username: document.getElementById("usernameField").value,
+                    password:  document.getElementById("passwordField").value,
+                    firstName:  document.getElementById("firstName").value,
+                    lastName:  document.getElementById("lastName").value,
+                    email:  document.getElementById("email").value,
+                    language:  document.getElementById("myList").value,
+                });
+            }
+
+        </script>
+
+        <main>
+
+            <form>
+                <div class ="container">
+                    <h1> Register </h1>
+                    <p> Please fill in the form to create your account. </p>
+                    <hr>
+                    <fieldset>
+                        <label for="email"> E-mail </label> <br>
+                        <input type="text" name="email" id="email" value="" required> <br>
+                        <label for="passwordField"> Password </label> <br>
+                        <input type="text" name="password" id="password" value="" required> <br>
+                        <label for="firstName"> FirstName </label> <br>
+                        <input type="text" name="firstName" id="firstName" value="" required> <br>
+                        <label for="lastName"> LastName </label> <br>
+                        <input type="text" name="lastName" id="lastName" value="" required> <br>
+                        <label>Select Language that would you like to learn</label> <br>
+                        <select id = "myList" >
+                            <option value = "french">French</option>
+                            <option value = "portuguese">Portuguese</option>
+                            <option value = "spanish">Spanish</option>
+                            <option value = "italian">Italian</option>
+
+                        </select> <br>
+                        <hr>
+                        <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+
+                        <button id="btn-signup type="button" onclick = "writeData()"> Register</button>
+                                                                                    <br>
+                                                                                    <div class="container signin">
+                                                                                                                 <p>Already have an account? <a href="signin.html">Sign in</a>.</p>
+        </div>
+
+      </fieldset>
+
+    </div>
+
+  </form>
+</main>
+
+<footer>
+  <p>Author: blabla</p>
+  <p><a href="mailto:hege@example.com">blablabla</a></p>
+                                      </footer>
+                                      </body>
+
+
+
+                                      </html>

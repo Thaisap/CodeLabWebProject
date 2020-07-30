@@ -1,13 +1,12 @@
 <!DOCTYPE html>
+
 <html>
     <head>
-        <meta charset="utf-8"/>
-        <title>Contact</title>
-        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-        <link rel="stylesheet" type="text/css" href="createaccount.css">
-        <link rel="stylesheet" type="text/css" href="index.css">
-        <!-- The rest of your page's header here -->
 
+        <meta charset="utf-8">
+        <title>SIgn In</title>
+        <link rel="stylesheet" type="text/css" href="index.css">
+          <link rel="stylesheet" type="text/css" href="createaccount.css">
         <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
 
         <!-- The core Firebase JS SDK is always required and must be listed first -->
@@ -22,10 +21,10 @@ https://firebase.google.com/docs/web/setup#available-libraries -->
         <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-analytics.js"></script>
 
         <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
-
     </head>
-    <body class = "contactBody">
 
+
+    <body>
 
         <div class="topnav">
             <a class="active" href="signin.html">Home</a>
@@ -43,13 +42,40 @@ https://firebase.google.com/docs/web/setup#available-libraries -->
 
         <br />
 
-        <h1 class="co">EasyLearn Contact Information</h1>
 
-        <ul class="cc">
-            <li><i class="fa fa-home"></i> 5678 123th Ave NE Bellevue WA</li>
-            <li><i class="fa fa-phone"></i> (425)789-1256</li>
-            <li><i class="fa fa-envelope"></i> easyleransilvadel@gmail.com</li>
-            <br>
-        </ul>
+        <h1> Please enter your info </h1>
+
+
+        <input id="email" type= "text" placeholder="email" >
+        <input  id="password" type= "text" placeholder="password">
+        <button id="btn-login" type="button"> Login</button>
+
+
+        <div class="w-full text-center p-t-27 p-b-239">
+            <span> Forgot</span>
+            <a href="forgotpassword.html" class="text-dark"> username/password?</a>
+        </div>
+
+        <div class="container signup">
+            <p>Don't have an account? <a href=signup.html>Sign in</a>.</p>
+        </div>
+
+        <footer>
+            <p>Author: blabla</p>
+            <p><a href="mailto:hege@example.com">blablabla</a></p>
+        </footer>
+
+        <script src=js/index.js> </script>
+        <script>
+            firebase.auth().onAuthStateChanged(function(user)
+                                               {
+                if(user)
+                {
+                    window.location.href = "MainPage.html";
+                }
+
+            });
+        </script>
     </body>
+
 </html>

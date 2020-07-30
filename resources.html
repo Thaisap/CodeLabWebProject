@@ -1,71 +1,97 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8"/>
-    <title>Page Title</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="createaccount.css">
-    <!-- The rest of your page's header here -->
-</head>
-<body class = "resourceBody">
-    <h1 class="resources">List Of Resources You Can Access </h1>
-    <div class="row">
-    <div class="column">
-    <img class="imageMission" src="./images/help.png" alt="Learn a new language">
-    </div>
+    <head>
+        <meta charset="utf-8"/>
+        <title>Resource</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="createaccount.css">
+          <link rel="stylesheet" type="text/css" href="index.css">
+        <!-- The rest of your page's header here -->
 
-    <div class="column">
-    <img class="imageMission" src="./images/help2.jpg" alt="Learn a new language">
-    </div>
-    <div class="column">
-    <img class="imageMission" src="./images/help3.jpg" alt="Learn a new language">
-    </div>
-</div>
-<br><br>
-    <ul class="cc">
-        <br>
-        <li class="re">Books:
-        <a href="#">
-          <span class="glyphicon glyphicon-book"></span>
-        </a>
-    </li>
-    <br>
-    <li class="re">Videos:
-    <a href="#">
-     <span class="glyphicon glyphicon-facetime-video"></span>
-    </a>
-</li>
-        <br>
+        <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
 
-        <li class="re">Audio Conversations:
-        <a href="#">
-         <span class="glyphicon glyphicon-headphones"></span>
-        </a>
-    </li>
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-database.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-storage.js"></script>
 
-        <br>
 
-        <li class="re">Workshops will be available each week:
-        <a href="#">
-         <span class="glyphicon glyphicon-calendar"></span>
-        </a>
-    </li>
-<br>
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+https://firebase.google.com/docs/web/setup#available-libraries -->
+        <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-analytics.js"></script>
 
-        <li class="re">
-Challenging Tasks for anyone to complete:
-        <a href="#">
-         <span class="glyphicon glyphicon-tasks"></span>
-        </a>
-    </li>
-    <br>
+        <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
 
-        <li class="re">Weekly Journals published by students:
-        <a href="#">
-         <span class="glyphicon glyphicon-folder-open"></span>
-        </a>
-    </li>
+    </head>
+    <body class = "resourceBody">
+
+        <div class="topnav">
+            <a class="active" href="signin.html">Home</a>
+            <a href="howItWorks.html">How it works</a>
+            <a href="teachWithUs.html">Teach With Us</a>
+            <a href="contact.html">Contact  Us</a>
+            <a href="resources.html">Resources</a>
+        </div>
+
+        <h1 class="resources">List Of Resources You Can Access </h1>
+        <div class="row">
+            <div class="column">
+                <img class="imageMission" src="./images/help.png" alt="Learn a new language">
+            </div>
+
+            <div class="column">
+                <img class="imageMission" src="./images/help2.jpg" alt="Learn a new language">
+            </div>
+            <div class="column">
+                <img class="imageMission" src="./images/help3.jpg" alt="Learn a new language">
+            </div>
+        </div>
+        <br><br>
+        <ul class="cc">
+            <br>
+            <li class="re">Books:
+                <a href="#">
+                    <span class="glyphicon glyphicon-book"></span>
+                </a>
+            </li>
+            <br>
+            <li class="re">Videos:
+                <a href="#">
+                    <span class="glyphicon glyphicon-facetime-video"></span>
+                </a>
+            </li>
+            <br>
+
+            <li class="re">Audio Conversations:
+                <a href="#">
+                    <span class="glyphicon glyphicon-headphones"></span>
+                </a>
+            </li>
+
+            <br>
+
+            <li class="re">Workshops will be available each week:
+                <a href="#">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </a>
+            </li>
+            <br>
+
+            <li class="re">
+                Challenging Tasks for anyone to complete:
+                <a href="#">
+                    <span class="glyphicon glyphicon-tasks"></span>
+                </a>
+            </li>
+            <br>
+
+            <li class="re">Weekly Journals published by students:
+                <a href="#">
+                    <span class="glyphicon glyphicon-folder-open"></span>
+                </a>
+            </li>
 
         </ul>
-</body>
+    </body>
 </html>
