@@ -1,18 +1,10 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-
     <meta charset="utf-8">
-
-    <title>Home Page</title>
-
-    <link rel="stylesheet" type="text/css" href="homepage.css">
+    <title>ResetConfirmation</title>
     <link rel="stylesheet" type="text/css" href="index.css">
     <link rel="stylesheet" type="text/css" href="createaccount.css">
-
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
@@ -23,13 +15,17 @@
 
 
     <!-- TODO: Add SDKs for Firebase products that you want to use
-    https://firebase.google.com/docs/web/setup#available-libraries -->
+https://firebase.google.com/docs/web/setup#available-libraries -->
     <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-analytics.js"></script>
 
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+
+    <script src=js/index.js></script>
 </head>
 
+
 <body>
+
 <header>
     <h1>EASYLEARN ONLINE LESSONS </h1>
 </header>
@@ -50,53 +46,14 @@
 
 <br/>
 
-<p>
-    Congratulations. You are here
-</p>
+<h1> Thanks! Please check your e-mail. A link was sent to recover your account</h1>
+<p><a href=signin.html>Go back to login page</a></p>
 
-<section>
-    <nav>
-        <ul>
-            <li><a href="#">London</a></li>
-            <li><a href="#">Paris</a></li>
-            <li><a href="#">Tokyo</a></li>
-        </ul>
-    </nav>
-
-    <article>
-        <h1>London</h1>
-        <p>London is the capital city of England. It is the most populous city in the  United Kingdom, with a metropolitan area of over 13 million inhabitants.</p>
-        <p>Standing on the River Thames, London has been a major settlement for two millennia, its history going back to its founding by the Romans, who named it Londinium.</p>
-    </article>
-</section>
-
-
-<div class="dropdown navbar-left">
-    <button
-            id="btn-logout"
-            class="btn btn-light dropdown-toggle bg-dark text-white"
-            type="button"
-            data-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false">
-        Logout
-    </button>
-
-</div>
-
-
-<script src=js/index.js></script>
-<script>
-    firebase.auth().onAuthStateChanged(function (user) {
-        if (!user) {
-            window.location.href = "signin.html";
-        }
-
-    });
-</script>
 <footer>
 
 </footer>
+
+
 
 </body>
 </html>
