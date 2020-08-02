@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Account Settings</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <link rel="stylesheet" type="text/css" href="createaccount.css">
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-storage.js"></script>
+    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-analytics.js"></script>
+
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+
+</head>
+
+<body>
+
+<header>
+    <h1>EASYLEARN ONLINE LESSONS </h1>
+</header>
+
+<div class="topnav">
+    <a class="active" href="signin.html">Home</a>
+    <a href="howItWorks.html">How it works</a>
+    <a href="teachWithUs.html">Teach With Us</a>
+    <a href="contact.html">Contact Us</a>
+    <a href="resources.html">Resources</a>
+    <a href="termDates.html">Term Schedule</a>
+</div>
+
+
+<div class="row">
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+</div>
+
+<br/>
+
+<main>
+
+    <form>
+        <div class="container">
+            <h1> Account Settings </h1>
+            <p> Please fill in the form to create your account. </p>
+            <hr>
+            <fieldset>
+                <label for="firstName"> FirstName </label> <br>
+                <input type="text" name="firstName" id="firstName" value="" required> <br>
+                <label for="lastName"> LastName </label> <br>
+                <input type="text" name="lastName" id="lastName" value="" required> <br>
+                <label>Select Language that would you like to learn</label> <br>
+                <select name="" id="myList" class="form-control">
+                    <option value="french">French</option>
+                    <option value="portuguese">Portuguese</option>
+                    <option value="spanish">Spanish</option>
+                    <option value="italian">Italian</option>
+                </select> <br>
+                <i class="zmdi zmdi-lock-caret-down" style="font-size: 17px"></i> <br>
+                <label for="phone"> Phone Number </label> <br>
+                <input type="text" name="phone" id="phone" value="" required> <br>
+                <i class="zmdi zmdi-tablet-mac"></i>
+                <label for="address"> Address </label> <br>
+                <input type="text" name="address" id="address" value="" required> <br>
+                <i class="zmdi zmdi-account-box-mail"></i>
+                <br>
+                <hr>
+                <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+
+                <button id="btn-update" type="button"> Update/Set</button>
+
+                <br>
+                <div class="container signin">
+                    <p>Already have an account? <a href="signin.html">Sign in</a>.</p>
+                </div>
+
+            </fieldset>
+
+        </div>
+
+    </form>
+</main>
+
+<footer>
+    <p>Author: blabla</p>
+    <p><a href="mailto:hege@example.com">blablabla</a></p>
+</footer>
+
+<script src=js/index.js></script>
+<script>
+    firebase.auth().onAuthStateChanged(function (user) {
+        if (user) {
+            var userID = firebase.auth().currentUser.uid;
+
+            firebase.database().ref('Users/' + userID).once('value').then(function (snapshot) {
+                if (snapshot.val()) {
+                    window.location.href = "MainPage.html";
+                }
+
+
+            })
+
+        }
+
+    });
+</script>
+</body>
+<footer>
+
+</footer>
+
+
+</html>

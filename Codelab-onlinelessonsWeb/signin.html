@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <title>SIgn In</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <link rel="stylesheet" type="text/css" href="createaccount.css">
+    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-storage.js"></script>
+
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-analytics.js"></script>
+
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+</head>
+
+
+<body>
+<header>
+    <h1>EASYLEARN ONLINE LESSONS </h1>
+</header>
+
+<div class="topnav">
+    <a class="active" href="signin.html">Home</a>
+    <a href="howItWorks.html">How it works</a>
+    <a href="teachWithUs.html">Teach With Us</a>
+    <a href="contact.html">Contact Us</a>
+    <a href="resources.html">Resources</a>
+    <a href="termDates.html">Term Schedule</a>
+</div>
+
+<div class="row">
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+</div>
+
+<br/>
+
+<form>
+    <h1> Please enter your info </h1>
+    <hr>
+
+    <fieldset>
+        <div class="imgcontainer">
+            <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+            <img src="./images/log2.png" alt="login" class="avatar">
+        </div>
+
+        <label for="email"> E-mail </label> <br>
+        <input id="email" type="text" placeholder="email">
+        <label for="password"> Password </label> <br>
+        <input id="password" type="text" placeholder="password">
+        <button id="btn-login" type="button"> Login As a Student</button>
+        <button id="btn-login2" type="button"> Login As an Instructor</button>
+
+
+        <div id= "forgot" class="w-full text-center p-t-27 p-b-239">
+            <span> Forgot</span>
+            <a href="forgotpassword.html" class="text-dark"> username/password?</a>
+        </div>
+
+        <div class="container signup">
+            <p>Don't have an account?<a href=signup.html>Sign in As a student</a>.</p>
+        </div>
+        <br>
+        <div class="container signup">
+            <p>Don't have an account?<a href=signup.html>Sign in As an Instructor</a>.</p>
+        </div>
+    </fieldset>
+</form>
+<footer>
+
+</footer>
+
+<script src=js/index.js></script>
+<script>
+    firebase.auth().onAuthStateChanged(function (user) {
+        if (user) {
+            var userID = firebase.auth().currentUser.uid;
+
+            firebase.database().ref('Users/' + userID).once('value').then(function (snapshot) {
+                    if (snapshot.val()) {
+                        window.location.href = "MainPage.html";
+                    } else {
+                        window.location.href = "accountSettings.html";
+                    }
+                }
+            )
+
+        }
+
+    });
+
+</script>
+</body>
+
+</html>

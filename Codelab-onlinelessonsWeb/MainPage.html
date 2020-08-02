@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+
+    <title>Home Page</title>
+
+    <link rel="stylesheet" type="text/css" href="homepage.css">
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <link rel="stylesheet" type="text/css" href="createaccount.css">
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-storage.js"></script>
+    <link rel="stylesheet" href="css/mobiscroll.javascript.min.css">
+    <script src="js/mobiscroll.javascript.min.js"></script>
+
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+    https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-analytics.js"></script>
+
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+</head>
+
+<body>
+<header>
+    <h1>EASYLEARN ONLINE LESSONS </h1>
+</header>
+
+<div class="topnav">
+    <a class="active" href="signin.html">Home</a>
+    <a href="howItWorks.html">How it works</a>
+    <a href="teachWithUs.html">Teach With Us</a>
+    <a href="contact.html">Contact Us</a>
+    <a href="resources.html">Resources</a>
+    <a href="termDates.html">Term Schedule</a>
+
+</div>
+
+<div class="row">
+    <div class="column"></div>
+    <div class="column"></div>
+    <div class="column"></div>
+</div>
+
+<br/>
+
+<p>
+    <h4>Congratulations&#128512;.Thank you for registering&#129309;.You are now one step away.</h4>
+</p>
+
+<section>
+    <nav>
+    <iframe width="300" height="190" src="https://www.youtube.com/embed/P3MUYUv-P9Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+    </nav>
+
+    <article>
+        <p>Please Select a starting date that you wish to join the class; an email confirmation will be sent to you if the course has more place. To view all the years available, go to the Term Schedules page. </p>
+        <div mbsc-page class="demo-eventhandlers">
+  <div style="height:100%">
+      <input id="demo" placeholder="Please Select a Starting and End Date..." />
+
+    <button id="clear">Clear</button>
+    <button id="show">Send your requeste</button>
+
+  </div>
+</div>
+
+    </article>
+</section>
+
+
+<div class="dropdown navbar-left">
+    <button
+            id="btn-logout"
+            class="btn btn-light dropdown-toggle bg-dark text-white"
+            type="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false">
+        Logout
+    </button>
+
+</div>
+
+
+<script src=js/index.js></script>
+<script>
+    firebase.auth().onAuthStateChanged(function (user) {
+        if (!user) {
+            window.location.href = "signin.html";
+        }
+
+    });
+</script>
+<script>
+    mobiscroll.settings = {
+        theme: 'ios',
+        themeVariant: 'light',
+        lang: 'en'
+    };
+
+    var instance = mobiscroll.range('#demo', {
+        theme: 'ios',                             // Specify theme like: theme: 'ios' or omit setting to use default
+        themeVariant: 'light',                    // More info about themeVariant: https://docs.mobiscroll.com/4-10-6/javascript/range#opt-themeVariant
+        lang: 'en',                               // Specify language like: lang: 'pl' or omit setting to use default
+        onInit: function (event, inst) {          // More info about onInit: https://docs.mobiscroll.com/4-10-6/javascript/range#event-onInit
+            // Your custom event handler goes here
+        },
+        onMarkupReady: function (event, inst) {   // More info about onMarkupReady: https://docs.mobiscroll.com/4-10-6/javascript/range#event-onMarkupReady
+            // Your custom event handler goes here
+        },
+        onBeforeShow: function (event, inst) {    // More info about onBeforeShow: https://docs.mobiscroll.com/4-10-6/javascript/range#event-onBeforeShow
+            // Your custom event handler goes here
+        },
+        onPosition: function (event, inst) {      // More info about onPosition: https://docs.mobiscroll.com/4-10-6/javascript/range#event-onPosition
+            // Your custom event handler goes here
+        },
+        onShow: function (event, inst) {          // More info about onShow: https://docs.mobiscroll.com/4-10-6/javascript/range#event-onShow
+            // Your custom event handler goes here
+        },
+        onSet: function (event, inst) {           // More info about onSet: https://docs.mobiscroll.com/4-10-6/javascript/range#event-onSet
+            // Your custom event handler goes here
+        },
+        onItemTap: function (event, inst) {       // More info about onItemTap: https://docs.mobiscroll.com/4-10-6/javascript/range#event-onItemTap
+            // Your custom event handler goes here
+        },
+        onDestroy: function (event, inst) {       // More info about onDestroy: https://docs.mobiscroll.com/4-10-6/javascript/range#event-onDestroy
+            // Your custom event handler goes here
+        },
+        onClose: function (event, inst) {         // More info about onClose: https://docs.mobiscroll.com/4-10-6/javascript/range#event-onClose
+            // Your custom event handler goes here
+        },
+        onChange: function (event, inst) {        // More info about onChange: https://docs.mobiscroll.com/4-10-6/javascript/range#event-onChange
+            // Your custom event handler goes here
+        },
+        onCancel: function (event, inst) {        // More info about onCancel: https://docs.mobiscroll.com/4-10-6/javascript/range#event-onCancel
+            // Your custom event handler goes here
+        },
+        onBeforeClose: function (event, inst) {   // More info about onBeforeClose: https://docs.mobiscroll.com/4-10-6/javascript/range#event-onBeforeClose
+            // Your custom event handler goes here
+        },
+        onClear: function (event, inst) {         // More info about onClear: https://docs.mobiscroll.com/4-10-6/javascript/range#event-onClear
+            // Your custom event handler goes here
+        },
+        onDayChange: function (event, inst) {     // More info about onDayChange: https://docs.mobiscroll.com/4-10-6/javascript/range#event-onDayChange
+            // Your custom event handler goes here
+        },
+        onPageChange: function (event, inst) {    // More info about onPageChange: https://docs.mobiscroll.com/4-10-6/javascript/range#event-onPageChange
+            // Your custom event handler goes here
+        },
+        onPageLoaded: function (event, inst) {    // More info about onPageLoaded: https://docs.mobiscroll.com/4-10-6/javascript/range#event-onPageLoaded
+            // Your custom event handler goes here
+        },
+        onPageLoading: function (event, inst) {   // More info about onPageLoading: https://docs.mobiscroll.com/4-10-6/javascript/range#event-onPageLoading
+            // Your custom event handler goes here
+        },
+        onSetDate: function (event, inst) {       // More info about onSetDate: https://docs.mobiscroll.com/4-10-6/javascript/range#event-onSetDate
+            // Your custom event handler goes here
+        },
+        onTabChange: function (event, inst) {     // More info about onTabChange: https://docs.mobiscroll.com/4-10-6/javascript/range#event-onTabChange
+            // Your custom event handler goes here
+        },
+        onCellHoverIn: function (event, inst) {   // More info about onCellHoverIn: https://docs.mobiscroll.com/4-10-6/javascript/range#event-onCellHoverIn
+            // Your custom event handler goes here
+        },
+        onCellHoverOut: function (event, inst) {  // More info about onCellHoverOut: https://docs.mobiscroll.com/4-10-6/javascript/range#event-onCellHoverOut
+            // Your custom event handler goes here
+        }
+    });
+
+    document
+        .getElementById('show')
+        .addEventListener('click', function () {
+            instance.show();
+        }, false);
+
+    document
+        .getElementById('clear')
+        .addEventListener('click', function () {
+            instance.clear();
+        }, false);
+
+</script>
+<footer>
+
+</footer>
+
+</body>
+</html>
