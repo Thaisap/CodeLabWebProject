@@ -190,6 +190,21 @@
         .addEventListener('click', function () {
             instance.clear();
         }, false);
+    
+    
+    //*********************************Upload and Save to Firebase Storage and Firebase Database*****//
+    
+    var databaseRef = firebase.databse().ref().child("Classes");
+    
+    databaseRef.once("value").then(function(snapshot)
+                                   {
+        var language = lessons["language"];
+        
+        var storageRef = firebase.storage().ref().child("Classes");
+        var ClassStorageRef = storageRef.child(language);
+        
+        var uploadTask = ClassStorageRef.put(lessons);
+    })
 
 </script>
     
