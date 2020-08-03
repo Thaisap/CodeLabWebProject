@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>starter code</title>
+    <title>Account Settings</title>
     <link rel="stylesheet" type="text/css" href="index.css">
     <link rel="stylesheet" type="text/css" href="createaccount.css">
 
@@ -50,24 +50,36 @@ https://firebase.google.com/docs/web/setup#available-libraries -->
 
     <form>
         <div class="container">
-            <h1> Register </h1>
+            <h1> Account Settings </h1>
             <p> Please fill in the form to create your account. </p>
             <hr>
             <fieldset>
-                <label for="email"> E-mail </label> <br>
-                <input type="text" name="email" id="email" value="" required> <br>
-                <label for="password"> Password </label> <br>
-                <input type="text" name="password" id="password" value="" required> <br>
-                <label for="confPassword"> Confirm Password </label> <br>
-                <input type="text" name="confPassword" id="confPassword" value="" required> <br>
-
+                <label for="firstName"> FirstName </label> <br>
+                <input type="text" name="firstName" id="firstName" value="" required> <br>
+                <label for="lastName"> LastName </label> <br>
+                <input type="text" name="lastName" id="lastName" value="" required> <br>
+                <label>Select Language that would you like to learn</label> <br>
+                <select name="" id="myList" class="form-control">
+                    <option value="french">French</option>
+                    <option value="portuguese">Portuguese</option>
+                    <option value="spanish">Spanish</option>
+                    <option value="italian">Italian</option>
+                </select> <br>
+                <i class="zmdi zmdi-lock-caret-down" style="font-size: 17px"></i> <br>
+                <label for="phone"> Phone Number </label> <br>
+                <input type="text" name="phone" id="phone" value="" required> <br>
+                <i class="zmdi zmdi-tablet-mac"></i>
+                <label for="address"> Address </label> <br>
+                <input type="text" name="address" id="address" value="" required> <br>
+                <i class="zmdi zmdi-account-box-mail"></i>
+                <br>
                 <hr>
                 <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
 
-                <button id="btn-signup" type="button"> Register</button>
+                <button id="btn-updateTeacher" type="button"> Update/Set</button>
 
                 <br>
-                <div class="container signin" id="notmember">
+                <div class="container signin">
                     <p>Already have an account? <a href="signin.html">Sign in</a>.</p>
                 </div>
 
@@ -86,40 +98,22 @@ https://firebase.google.com/docs/web/setup#available-libraries -->
             var userID = firebase.auth().currentUser.uid;
 
             firebase.database().ref('Users/' + userID).once('value').then(function (snapshot) {
-                    if (snapshot.val()) {
-                        window.location.href = "MainPage.html";
-                    } else {
-                        window.location.href = "accountSettings.html";
-                    }
+                if (snapshot.val()) {
+                    window.location.href = "MainPageTeacher.html";
                 }
-            )
 
-        }
 
-    });
-
-    firebase.auth().onAuthStateChanged(function (user2) {
-        if (user2) {
-            var user2ID = firebase.auth().currentUser.uid;
-
-            firebase.database().ref('Teacher/' + user2ID).once('value').then(function (snapshot) {
-                    if (snapshot.val()) {
-                        window.location.href = "MainPageTeacher.html";
-                    } else {
-                        window.location.href = "accountSettingsTeacher.html";
-                    }
-                }
-            )
+            })
 
         }
 
     });
 </script>
-
+</body>
 <footer>
   <p>Author: Adel Aziza & Thais Da Silva<br>
   <a href="mailto:tha.apda@gmail.com">tha.apa@gmail.com or adel.aziza@bellevuecollege.edu</a></p>
 </footer>
-</body>
+
 
 </html>

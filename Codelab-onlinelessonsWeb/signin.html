@@ -72,8 +72,8 @@ https://firebase.google.com/docs/web/setup#available-libraries -->
         <div class="container signup" id="notmember">
             <p>Not a member? Sign up<a href=signup.html> As a student</a> or <a href=signup.html>As an Instructor</a></p>
         </div>
-    
-    
+
+
     </fieldset>
 </form>
 <footer>
@@ -87,7 +87,7 @@ https://firebase.google.com/docs/web/setup#available-libraries -->
         if (user) {
             var userID = firebase.auth().currentUser.uid;
 
-            firebase.database().ref('Users/' + userID).once('value').then(function (snapshot) {
+            firebase.database().ref('Students/' + userID).once('value').then(function (snapshot) {
                     if (snapshot.val()) {
                         window.location.href = "MainPage.html";
                     } else {
@@ -99,6 +99,25 @@ https://firebase.google.com/docs/web/setup#available-libraries -->
         }
 
     });
+
+        firebase.auth().onAuthStateChanged(function (user2) {
+            if (user2) {
+                var user2ID = firebase.auth().currentUser.uid;
+
+                firebase.database().ref('Teacher/' + user2ID).once('value').then(function (snapshot) {
+                        if (snapshot.val()) {
+                            window.location.href = "MainPageTeacher.html";
+                        } else {
+                            window.location.href = "accountSettingsTeacher.html";
+                        }
+                    }
+                )
+
+            }
+
+        });
+
+
 
 </script>
 </body>

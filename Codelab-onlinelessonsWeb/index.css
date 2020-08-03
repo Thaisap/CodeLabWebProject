@@ -218,7 +218,7 @@ footer {
     padding: 10px;
     text-align: center;
     color: white;
-    
+
 }
 
 #forgot{
@@ -233,4 +233,18 @@ footer {
     text-align: center;
     font-size: 20px;
 }
+#welcomevideo {
+  margin-left: 450px;   /* Automatic margin from left */
 
+ }
+
+ #clear{
+   padding-top: 10px;
+   padding-bottom: 20px;
+ }
+
+#welcometext {
+  text-align: center;
+  padding-bottom: 20px;
+  font-size: 40px;
+}

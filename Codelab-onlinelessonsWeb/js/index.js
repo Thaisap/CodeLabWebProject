@@ -128,7 +128,7 @@ $("#btn-update").click(function()
     var address = $("#address").val();
     var phone = $("#phone").val();
 
-    var rootRef = firebase.database().ref().child("users");
+    var rootRef = firebase.database().ref().child("student");
     var userID = firebase.auth().currentUser.uid;
     var usersRef = rootRef.child(userID);
 
@@ -172,21 +172,73 @@ $("#btn-update").click(function()
 
 });
 
+$("#btn-updateTeacher").click(function()
+                       {
+    var firstName = $("#firstName").val();
+    var lastName = $("#lastName").val();
+    var myList = $("#myList").val();
+    var address = $("#address").val();
+    var phone = $("#phone").val();
+
+    var rootRef = firebase.database().ref().child("teacher");
+    var user2ID = firebase.auth().currentUser.uid;
+    var usersRef = rootRef.child(user2ID);
+
+    if(firstName!="" && lastName!="" && myList!="" && address!= "" && phone!="")
+    {
+        var userData =
+            {
+                "phone": phone,
+                "address": address,
+                "firstName": firstName,
+                "lastName": lastName,
+                "myList": myList,
+            };
+        usersRef.set(userData, function(error)
+                     {
+            if(error)
+            {
+                var errorCode = error.code;
+                var errorMessage = error.message;
+
+                console.log(errorCode);
+                console.log(errorMessage);
+
+                window.alert("Message : " + errorMessage);
+
+            }
+            else
+            {
+                window.location.href="MainPageTeacher.html";
+
+            }
+
+        });
+    }
+    else
+    {
+        window.alert("please enter your info");
+    }
+
+
+
+});
+
 $("#btn-resetPassword").click(function()
-          
+
                               {
     var auth = firebase.auth();
     var email = $("#email").val();
-    
+
     if(email != "")
     {
         auth.sendPasswordResetEmail(email).then(function()
                                                {
-              window.alert("Email has been sent to yoy, Please check and verify."); 
+              window.alert("Email has been sent to yoy, Please check and verify.");
         })
         .catch(function(error)
                {
-            
+
              var errorCode = error.code;
                 var errorMessage = error.message;
 
@@ -198,7 +250,7 @@ $("#btn-resetPassword").click(function()
     }
     else
         {
-               window.alert("Please write your email first."); 
+               window.alert("Please write your email first.");
         }
-   
+
 });
